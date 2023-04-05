@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Wrapper from "../Helpers/Wrapper";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 import ErrorModal from "../UI/ErrorModal";
@@ -41,12 +42,13 @@ function AddUser(props) {
       ...prev,
       { age: enteredAge, username: enteredUsername, id: Math.random() },
     ]);
+    
     setEnteredAge("");
     setEnteredUsername("");
   };
 
   return (
-    <div>
+    <Wrapper>
       {error && (
         <ErrorModal
           onConfirm={errorHandler}
@@ -73,7 +75,7 @@ function AddUser(props) {
           <Button type="submit">Add User</Button>
         </form>
       </Card>
-    </div>
+    </Wrapper>
   );
 }
 
